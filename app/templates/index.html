@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    {% import 'macros.html' as macro%}
+</head>
+
+<body>
+    <!-- topp news section  -->
+    <h3> Top Headlines</h3>
+     <ul>
+        {% for top_source in top %}
+            <li>{{ top_source.title}}</li>
+        {% endfor %}
+    </ul>
+    
+
+        <!-- Upcoming movie  -->
+        <h3> Business News </h3>
+         <ul>
+            {% for business_source in business %}
+                <li>{{ business_source.title}}</li>
+            {% endfor %}
+        </ul>
+        <!-- Now showing movie -->
+        <h3>Techonology News</h3>
+         <ul>
+            {% for tech_source in techCrunch %}
+                <li>{{ tech_source.title}}</li>
+            {% endfor %}
+        </ul>
+        <h3>Wall Street Journal News</h3>
+        <ul>
+           {% for wall_source in wall_street_journal %}
+               <li>{{ wall_source.title}}</li>
+           {% endfor %}
+       </ul>
+       <ul>
+        {{ macro.displaySourceList(top)}}
+    </ul>
+
+</body>
+</html>
