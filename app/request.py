@@ -8,7 +8,7 @@ Article = article.Article
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
 base_url = app.config["SOURCE_API_BASE_URL"]
-base_url = app.config["ARTICLE_API_BASE_URL"]
+articles_url = app.config["ARTICLE_API_BASE_URL"]
 def get_sources(category):
     '''
     Function that gets the json response to our url request
@@ -41,28 +41,27 @@ def process_results(source_list):
     for source_item in source_list:
         id = source_item.get('id')
         name = source_item.get('name')
-        author = source_item.get('author')
-        title = source_item.get('title')
         description = source_item.get('description')
         url = source_item.get('url')
-        urlToImage = source_item.get('urlToImage')
-        publishedAt = source_item.get('publishedAt')
-        content = source_item.get('content')
+        category = source_item.get('category')
+        language = source_item.get('language')
+        country = source_item.get('country')
+        
 
         
         
         # if url:
-        source_object = Article(id,name,author,title,description,url,urlToImage,publishedAt,content)
+        source_object = Source(id,name,description,url,category,language,country)
         source_results.append(source_object)
 
 
-        source_results = None
+    return source_results 
 
 def get_articles(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_articles_url = base_url.format(category,api_key)
+    get_articles_url = articles_url.format(category,api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -84,6 +83,7 @@ def process_results(article_list):
         source_list: A list of dictionaries that contain source details
 
     Returns :
+    
         source_results: A list of source objects
     '''
     article_results = []
@@ -105,5 +105,5 @@ def process_results(article_list):
         article_results.append(article_object)
 
 
-        article_results = None
+    return article_results
    
