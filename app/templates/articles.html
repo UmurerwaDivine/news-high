@@ -1,4 +1,4 @@
-
+<head>
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 {% block styles%}
@@ -7,12 +7,15 @@
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     {% endblock %}
 <!-- Content block -->
+</head>
+<body>
 {% block content %}
 <div class="container">
 <h3>top News</h3>
     <!-- Poster background -->
+    {% for article in article_list%}
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{article.urlToImage}}) no-repeat center center">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{article.url}}) no-repeat center center">
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
@@ -24,6 +27,8 @@
 
         </div>
     </div>
+    {%endfor%}
 
 </div>
 {% endblock %}
+</body>
