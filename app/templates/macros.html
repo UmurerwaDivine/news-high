@@ -1,7 +1,45 @@
+{% extends 'base.html'%}
+
+
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
 {% macro displaySourceList(source_list) %}
 
     {% for source in source_list %}
-        <li>{{ source.title}}</li>
+   
+    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+    <a href="{{ source.id|truncate(10)}}">{{ source.id}}</a>
+    
+    <li>{{source.description}}</li>
+</div> 
+</div>
+    {% endfor %}
+
+{% endmacro %}
+</div>
+</div>
+<!-- {% macro displayArticleList(article_list) %}
+{% for article in article_list %}
+<li>{{article.title}}</li>
+<li>{{article.author}}</li>
+<li>{{article.publishedAt}}</li>
+<li>{{article.author}}</li>
+
+{% endfor %}
+{%endmacro%} -->
+{% macro displayArticleList(article_list) %}
+
+    {% for article in article_list %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+            <a href="{{article.url}}"><img src="{{ article.image }}" alt="{{ article.description }} " class="img-responsive">
+               </a>
+            
+            <li class="text-center">
+                <a href=" {{ article.title|truncate(10)}}">{{article.description}}</a>
+                <a href="/article/{{article.id}}">
+                    {{ article.title|truncate(10)}}</a>
+            </li>
+        </div>
+
     {% endfor %}
 
 {% endmacro %}

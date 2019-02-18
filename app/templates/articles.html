@@ -1,0 +1,29 @@
+
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% block styles%}
+   
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    {% endblock %}
+<!-- Content block -->
+{% block content %}
+<div class="container">
+<h3>top News</h3>
+    <!-- Poster background -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{article.urlToImage}}) no-repeat center center">
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+            <h3>{{ article.title }}</h3>
+
+            <p class="overview"> {{ article.url }}</p>
+            <p class="ratings"> <b> {{article.author}}</b> - <i>{{ article.publishedAt}} publisher </i> </p>
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

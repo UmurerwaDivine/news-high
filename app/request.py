@@ -23,11 +23,11 @@ def get_sources(category):
 
         if get_sources_response['sources']:
             source_results_list = get_sources_response['sources']
-            source_results = process_results(source_results_list)
+            source_results = process_sources(source_results_list)
 
 
     return source_results
-def process_results(source_list):
+def process_sources(source_list):
     '''
     Function  that processes the source result and transform them to a list of Objects
 
@@ -50,18 +50,18 @@ def process_results(source_list):
 
         
         
-        # if url:
-        source_object = Source(id,name,description,url,category,language,country)
-        source_results.append(source_object)
+        if url:
+         source_object = Source(id,name,description,url,category,language,country)
+         source_results.append(source_object)
 
 
     return source_results 
 
-def get_articles(category):
+def get_articles(id):
     '''
     Function that gets the json response to our url request
     '''
-    get_articles_url = articles_url.format(category,api_key)
+    get_articles_url = articles_url.format(id,api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -71,11 +71,11 @@ def get_articles(category):
 
         if get_articles_response['articles']:
             article_results_list = get_articles_response['articles']
-            article_results = process_results(article_results_list)
+            article_results = process_articles(article_results_list)
 
 
     return article_results
-def process_results(article_list):
+def process_articles(article_list):
     '''
     Function  that processes the source result and transform them to a list of Objects
 
@@ -100,9 +100,9 @@ def process_results(article_list):
 
         
         
-        # if url:
-        article_object = Article(id,name,author,title,description,url,urlToImage,publishedAt,content)
-        article_results.append(article_object)
+        if url:
+         article_object = Article(id,name,author,title,description,url,urlToImage,publishedAt,content)
+         article_results.append(article_object)
 
 
     return article_results

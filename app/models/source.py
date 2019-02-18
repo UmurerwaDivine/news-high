@@ -3,7 +3,7 @@ class Source:
     Movie class to define Movie Objects
     '''
 
-    def __init__(self,id,name,author,title,description,url,category,language,country):
+    def __init__(self,id,name,description,url,category,language,country):
         self.id =id
         self.name = name
         self.description = description
