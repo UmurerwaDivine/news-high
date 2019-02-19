@@ -1,11 +1,14 @@
-<head>
 {% extends 'base.html'%}
+<head>
+
 {% import 'macros.html' as macro%}
 {% block styles%}
-   
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-    {% endblock %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+<style>
+        @import url('https://fonts.googleapis.com/css?family=Gentium+Basic|Satisfy');
+        </style>
+{% endblock %}
 <!-- Content block -->
 </head>
 <body>
@@ -13,21 +16,27 @@
 <div class="container">
 <h3>top News</h3>
     <!-- Poster background -->
-    {% for article in article_list%}
+    
+    {% for article in articles%}
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{article.url}}) no-repeat center center">
-        </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                <h3><img src="{{article.urlToImage}}" class="img-responsive" alt="News"></h3>
+            </div>
+            <p class="overview"> {{ article.author }}</p>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                <p class="well">{{article.description}}</p> 
+                <p>published:{{ article.publishedAt}}</p>
+                    
+  
+            <h3><a href="{{article.url}}">read more</a></h3>
 
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
-            <h3>{{ article.title }}</h3>
+            
+            
 
-            <p class="overview"> {{ article.url }}</p>
-            <p class="ratings"> <b> {{article.author}}</b> - <i>{{ article.publishedAt}} publisher </i> </p>
-
-
-        </div>
+           </div>
     </div>
     {%endfor%}
+   
 
 </div>
 {% endblock %}

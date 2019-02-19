@@ -1,8 +1,9 @@
-*{
+body{
     font-family: 'Satisfy', cursive;
+    font-size: 18px;
+    background-image: url('app/static/images.jpeg');background-size:cover;
 }
-h3{
-    text-align: left;
 
-    font-family: 'Satisfy', cursive;
+body>h3{
+    text-align: left;
 }

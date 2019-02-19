@@ -107,3 +107,25 @@ def process_articles(article_list):
 
     return article_results
    
+# def get_article(id):
+#     get_article_details_url = base_url.format(id,api_key)
+
+#     with urllib.request.urlopen(get_article_details_url) as url:
+#         article_details_data = url.read()
+#         article_details_response = json.loads(article_details_data)
+
+#         article_object = None
+#         if article_details_response:
+#             id = article_details_response.get('id')
+#             name = article_details_response.get(' name')
+#             author = article_details_response.get('author')
+#             title = article_details_response.get('title')
+#             description = article_details_response.get('description')
+#             url = article_details_response.get('url')
+#             urlToImage = article_details_response.get('urlToImage')
+#             publishedAt = article_details_response.get('publishedAt')
+#             content = article_details_response.get('content')
+
+#             article_object =Article(id, name,author,description,title,url,urlToImage,publishedAt,content)
+
+#     return article_object

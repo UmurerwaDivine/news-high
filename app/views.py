@@ -20,24 +20,24 @@ def index():
   
     print(general_source)
     
-    title = 'Home - Welcome to The best Movie Review Website Online'
+    title = 'Home - Welcome to The best News Review Website Online'
     return render_template('index.html', title=title, general = general_source,technology =tech_source,business=business_source,sports=sport_source,entertainment=entertainment_source)
 
 
-@app.route('/sources/<id>')
-def articles(source_id):
+@app.route('/article/<id>')
+def article(id):
 
     '''
     View root page function that returns the index page and its data
     '''
 
     # Getting top news
-    article = get_articles(id)
-    title = f'{article.title}'
+    articles = get_articles(id)
+    # title = f'{article.title}'
   
     
-    title = 'Home - Welcome to The best Movie Review Website Online'
-    return render_template('articles.html',title=title, article=article)
+    title = 'Home - Welcome to The best News Review Website Online'
+    return render_template('articles.html', articles=articles)
 
 
 

@@ -1,22 +1,26 @@
 {% extends 'base.html'%}
 
+       
 
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+        <div class="well">
 {% macro displaySourceList(source_list) %}
 
     {% for source in source_list %}
    
-    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
-    <a href="{{ source.id|truncate(10)}}">{{ source.id}}</a>
-    
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 movie-card">
+            <div class="panel-heading">
+    <a href="/article/{{source.id}}">{{ source.name}}</a>
+</div>
+    <div class="well">
     <li>{{source.description}}</li>
+</div>
 </div> 
 </div>
+
     {% endfor %}
 
 {% endmacro %}
-</div>
-</div>
+
 <!-- {% macro displayArticleList(article_list) %}
 {% for article in article_list %}
 <li>{{article.title}}</li>
@@ -26,20 +30,22 @@
 
 {% endfor %}
 {%endmacro%} -->
-{% macro displayArticleList(article_list) %}
+<!-- {% macro displayArticleList(article_list) %}
 
     {% for article in article_list %}
         <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
             <a href="{{article.url}}"><img src="{{ article.image }}" alt="{{ article.description }} " class="img-responsive">
                </a>
             
-            <li class="text-center">
-                <a href=" {{ article.title|truncate(10)}}">{{article.description}}</a>
-                <a href="/article/{{article.id}}">
-                    {{ article.title|truncate(10)}}</a>
-            </li>
-        </div>
+               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+                    <h3>{{ article.author }}</h3>
+        
+                    <p class="well"> {{ article.description }}</p>
+                    <p class="well"> <p> {{ article.urlToImage}}</p>  <p>publisher:{{article.publishedAt}}</p>
+        
+        
+                </div>
 
     {% endfor %}
 
-{% endmacro %}
+{% endmacro %} -->
