@@ -19,90 +19,11 @@
 <body>
   
    {%block content%}
-  <div >
-    <h3> Top Headlines</h3>
-</div>
-     <!-- <ul>
-        {% for general_source in general %}
-            <li>{{ general_source.general}}</li>
-        {% endfor %}
-    </ul> -->
  
-
-     
-        <!-- <h3> Business News </h3>
-         <ul>
-            {% for description_source in description_source %}
-                <li>{{ description_source.description}}</li>
-            {% endfor %}
-        </ul>
-       
-        <h3>Techonology News</h3>
-         <ul>
-            {% for url_source in url %}
-                <li>{{ url_source.url}}</li>
-            {% endfor %}
-        </ul>
-        <h3>Wall Street Journal News</h3>
-        <ul>
-           {% for category_source in category %}
-               <li>{{ category_source.category}}</li>
-           {% endfor %}
-       </ul> -->
+    <h3> Top Headlines</h3>
        
          {{ macro.displaySourceList(general)}} 
     
-    
-    <!-- <h3>Techonology News</h3>
-    
-       <ul>{{ macro.displaySourceList(technology)}}</ul>  
-    </div>
-       
-      
-       <h3>Business News</h3>
-    
-            <ul>{{ macro.displaySourceList(business)}} </ul>
-       
-        
-           
-       
-     
-       <h3>Sport News</h3>
-       
-           <ul>{{ macro.displaySourceList(sports)}} </ul> 
-       
-    
-       
-    
-    
-     
-  
-     
-     -->
-
-        <!-- Upcoming movie  -->
-        <!-- <h3> Business News </h3>
-         <ul>
-            {% for business_source in business %}
-                <li>{{ business_source.title}}</li>
-            {% endfor %}
-        </ul>
-        
-        <h3>Techonology News</h3>
-         <ul>
-            {% for tech_source in techCrunch %}
-                <li>{{ tech_source.title}}</li>
-            {% endfor %}
-        </ul>
-        <h3>Wall Street Journal News</h3>
-        <ul>
-           {% for wall_source in wall_street_journal %}
-               <li>{{ wall_source.title}}</li>
-           {% endfor %}
-       </ul>-->
-       <!-- <ul> 
-         {{ macro.displayArticleList(general)}}
-    </ul>  -->
    
     {%endblock%}
 </body>
