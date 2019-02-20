@@ -10,17 +10,18 @@
         </style>
 {% endblock %}
 <!-- Content block -->
+
 </head>
 <body>
 {% block content %}
 <div class="container">
-<h3>top News</h3>
+<h3>General News</h3>
     <!-- Poster background -->
     
     {% for article in articles%}
     <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-                <h3><img src="{{article.urlToImage}}" class="img-responsive" alt="News"></h3>
+                <h3><img src="{{article.urlToImage}}" class="img-responsive" alt="Newsphoto"></h3>
             </div>
             <p class="overview"> {{ article.author }}</p>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">

@@ -1,9 +1,13 @@
 body{
     font-family: 'Satisfy', cursive;
     font-size: 18px;
-    background-image: url('app/static/images.jpeg');background-size:cover;
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://i.ytimg.com/vi/A1LtAYGom9Y/maxresdefault.jpg');
 }
 
-body>h3{
+h3{
     text-align: left;
+    color: white;
+}
+#one>a{
+    color: white;
 }

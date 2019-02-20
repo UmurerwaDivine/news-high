@@ -1,25 +1,30 @@
 {% extends 'base.html'%}
-
-       
-
-        <div class="well">
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+{% endblock %}
 {% macro displaySourceList(source_list) %}
+
 
     {% for source in source_list %}
    
     <div class="col-xs-12 col-sm-2 col-md-4 col-lg- movie-card">
-            <div class="panel-heading">
+            
+            <div class="panel-heading"id="one">
     <a href="/article/{{source.id}}">{{ source.name}}</a>
 </div>
     <div class="well">
     <li>{{source.description}}</li>
+    <a href="{{source.url}}">View Article</a>
 </div>
 </div> 
-</div>
+
+
 
     {% endfor %}
 
 {% endmacro %}
+
 
 <!-- {% macro displayArticleList(article_list) %}
 {% for article in article_list %}
